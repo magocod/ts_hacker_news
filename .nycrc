@@ -14,7 +14,8 @@
     "test/**",
     "node_modules/**",
     "**/*.d.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    ".eslintrc.js"
   ],
   "sourceMap": true,
   "reporter": [

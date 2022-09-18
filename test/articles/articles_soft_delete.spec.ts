@@ -54,6 +54,7 @@ describe("articles_soft_delete", function () {
     });
   });
 
+  // FIXME test - route params - validation
   // it("invalid url parameter", async function () {
   //   const response = await httpClient.delete(`${baseRoute}/hello_world`);
   //   assert.equal(response.status, 404);

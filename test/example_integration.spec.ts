@@ -13,7 +13,15 @@ describe("example_integration", function () {
 
   it("base url", async function () {
     const response = await httpClient.get("/");
-    // console.log(response.body);
     assert.equal(response.status, 200);
+  });
+
+  it("not found url", async function () {
+    const response = await httpClient.get("/not_exist");
+    assert.equal(response.status, 404);
+    assert.deepEqual(response.body, {
+      message: "Not Found",
+      msg: "general exception message",
+    });
   });
 });
