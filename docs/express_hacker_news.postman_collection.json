@@ -1,0 +1,540 @@
+{
+	"info": {
+		"_postman_id": "ab6efbaa-8fde-4b30-8f8a-930dcffe8a90",
+		"name": "express_hacker_news",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6538115"
+	},
+	"item": [
+		{
+			"name": "articles",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/articles?page=1",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "perPage",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "rekti",
+									"description": "example: rektide",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "author_querulous,author_rektide,author_devarshishimpi",
+									"description": "example: tagA,tagB,tagC",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "top",
+									"description": "example: top",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "findAll",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local_url}}/articles?page=1",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"articles"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "author",
+											"value": "rekti",
+											"description": "example: rektide",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "author_querulous,author_rektide,author_devarshishimpi",
+											"description": "example: tagA,tagB,tagC",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "top",
+											"description": "example: top",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4975"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"136f-bKbe45VIytM1Tw/1CiaD5bd5jb0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Sep 2022 19:27:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Node.js news\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"objectID\": \"32890077\",\n            \"title\": null,\n            \"story_id\": 32885774,\n            \"author\": \"ivanjermakov\",\n            \"tags\": [\n                \"comment\",\n                \"author_ivanjermakov\",\n                \"story_32885774\"\n            ],\n            \"created_at\": \"2022-09-18T18:30:32.000Z\",\n            \"url\": null,\n            \"points\": null,\n            \"story_text\": null,\n            \"comment_text\": \"Two applications that come to mind that use visual scripting are:<p>- Blender&#x27;s Node editor[1], used to create materials and describe post-processing flow.<p>- DaVinci Resolve Nodes[2], used to create reusable color grading profile (LUT)<p>[1]: <a href=\\\"https:&#x2F;&#x2F;docs.blender.org&#x2F;manual&#x2F;en&#x2F;2.79&#x2F;editors&#x2F;node_editor&#x2F;introduction.html\\\" rel=\\\"nofollow\\\">https:&#x2F;&#x2F;docs.blender.org&#x2F;manual&#x2F;en&#x2F;2.79&#x2F;editors&#x2F;node_editor&#x2F;...</a><p>[2]: <a href=\\\"https:&#x2F;&#x2F;www.makeuseof.com&#x2F;nodes-davinci-resolve-beginner-tutorial\\\" rel=\\\"nofollow\\\">https:&#x2F;&#x2F;www.makeuseof.com&#x2F;nodes-davinci-resolve-beginner-tut...</a>\",\n            \"num_comments\": null,\n            \"story_title\": \"GTA VI Leak [video]\",\n            \"story_url\": \"https://www.youtube.com/watch?v=az2wt7sRuHM\",\n            \"parent_id\": 32886276,\n            \"serverCreatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"updatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 2,\n            \"objectID\": \"32889857\",\n            \"title\": null,\n            \"story_id\": 32884467,\n            \"author\": \"jacobolus\",\n            \"tags\": [\n                \"comment\",\n                \"author_jacobolus\",\n                \"story_32884467\"\n            ],\n            \"created_at\": \"2022-09-18T18:10:18.000Z\",\n            \"url\": null,\n            \"points\": null,\n            \"story_text\": null,\n            \"comment_text\": \"The graph drawn here is different from the graph of states: the latter has the cube of the number of these graph nodes, and several edges per node, and would be difficult to draw clearly on a flat paper.\",\n            \"num_comments\": null,\n            \"story_title\": \"Show HN: I may have created a new type of puzzle\",\n            \"story_url\": \"http://www.dogbunnypuzzle.com/\",\n            \"parent_id\": 32886725,\n            \"serverCreatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"updatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 3,\n            \"objectID\": \"32889612\",\n            \"title\": null,\n            \"story_id\": 32888538,\n            \"author\": \"pram\",\n            \"tags\": [\n                \"comment\",\n                \"author_pram\",\n                \"story_32888538\"\n            ],\n            \"created_at\": \"2022-09-18T17:45:19.000Z\",\n            \"url\": null,\n            \"points\": null,\n            \"story_text\": null,\n            \"comment_text\": \"This is how fleet on CoreOS was designed. It just managed systemd containers across your nodes (IIRC its been a while)\",\n            \"num_comments\": null,\n            \"story_title\": \"Why Fix Kubernetes and Systemd?\",\n            \"story_url\": \"https://medium.com/@kris-nova/why-fix-kubernetes-and-systemd-782840e50104\",\n            \"parent_id\": 32888873,\n            \"serverCreatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"updatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 4,\n            \"objectID\": \"32889368\",\n            \"title\": null,\n            \"story_id\": 32884467,\n            \"author\": \"closedloop129\",\n            \"tags\": [\n                \"comment\",\n                \"author_closedloop129\",\n                \"story_32884467\"\n            ],\n            \"created_at\": \"2022-09-18T17:18:00.000Z\",\n            \"url\": null,\n            \"points\": null,\n            \"story_text\": null,\n            \"comment_text\": \"This is fun.<p>A minor issue: It would be nice if nodes could be skipped.<p>E.g. initially, the dog is on the tree and can move to the carrot in two steps. It is required to make both steps and drop the dog on the well. I would prefer if I could put the dog directly on the carrot, or if I could put the dog on the carrot after hovering the dog over the well.\",\n            \"num_comments\": null,\n            \"story_title\": \"Show HN: I may have created a new type of puzzle\",\n            \"story_url\": \"http://www.dogbunnypuzzle.com/\",\n            \"parent_id\": 32884467,\n            \"serverCreatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"updatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 5,\n            \"objectID\": \"32888188\",\n            \"title\": null,\n            \"story_id\": 32884467,\n            \"author\": \"fardo\",\n            \"tags\": [\n                \"comment\",\n                \"author_fardo\",\n                \"story_32884467\"\n            ],\n            \"created_at\": \"2022-09-18T15:12:19.000Z\",\n            \"url\": null,\n            \"points\": null,\n            \"story_text\": null,\n            \"comment_text\": \"Older analogues exists, but not exactly in this form.<p>Two puzzles from Logical Adventure of the Zoombinis are very close, though.<p>The first is Captain Cajun’s ferryboat, which you can see at <a href=\\\"https:&#x2F;&#x2F;youtu.be&#x2F;_JlMcs_2xes\\\" rel=\\\"nofollow\\\">https:&#x2F;&#x2F;youtu.be&#x2F;_JlMcs_2xes</a>. The constraint is that all zoombinis you seat on the boat must share at least one trait with at least one of their neighbors. It doesn’t really impose spatial dependencies of movement like your puzzle does though.<p>For one that does, but by taking on a cartesian grid, you can look to Bubblewonder abyss <a href=\\\"https:&#x2F;&#x2F;youtu.be&#x2F;vx1yFKVdq9o\\\" rel=\\\"nofollow\\\">https:&#x2F;&#x2F;youtu.be&#x2F;vx1yFKVdq9o</a>, which on its hardest difficulty adds many, many rules to moving between nodes based on traits, plus re-use toggles (so if a node is visited twice, it goes two different places, “capture” triggers of glowing colored particles that holds one Zoombini captive, and a “release” button that lets it go.\",\n            \"num_comments\": null,\n            \"story_title\": \"Show HN: I may have created a new type of puzzle\",\n            \"story_url\": \"http://www.dogbunnypuzzle.com/\",\n            \"parent_id\": 32884467,\n            \"serverCreatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"updatedAt\": \"2022-09-18T23:27:16.993Z\",\n            \"deletedAt\": null\n        }\n    ],\n    \"page\": 1,\n    \"perPage\": 5,\n    \"total\": 20\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/articles/1",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local_url}}/articles/1",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"articles",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1237"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d5-aUDO9rnT4QRZGID2IxxYihX3MgI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Sep 2022 19:31:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"removed\",\n    \"data\": {\n        \"id\": 1,\n        \"objectID\": \"32890077\",\n        \"title\": null,\n        \"story_id\": 32885774,\n        \"author\": \"ivanjermakov\",\n        \"tags\": [\n            \"comment\",\n            \"author_ivanjermakov\",\n            \"story_32885774\"\n        ],\n        \"created_at\": \"2022-09-18T18:30:32.000Z\",\n        \"url\": null,\n        \"points\": null,\n        \"story_text\": null,\n        \"comment_text\": \"Two applications that come to mind that use visual scripting are:<p>- Blender&#x27;s Node editor[1], used to create materials and describe post-processing flow.<p>- DaVinci Resolve Nodes[2], used to create reusable color grading profile (LUT)<p>[1]: <a href=\\\"https:&#x2F;&#x2F;docs.blender.org&#x2F;manual&#x2F;en&#x2F;2.79&#x2F;editors&#x2F;node_editor&#x2F;introduction.html\\\" rel=\\\"nofollow\\\">https:&#x2F;&#x2F;docs.blender.org&#x2F;manual&#x2F;en&#x2F;2.79&#x2F;editors&#x2F;node_editor&#x2F;...</a><p>[2]: <a href=\\\"https:&#x2F;&#x2F;www.makeuseof.com&#x2F;nodes-davinci-resolve-beginner-tutorial\\\" rel=\\\"nofollow\\\">https:&#x2F;&#x2F;www.makeuseof.com&#x2F;nodes-davinci-resolve-beginner-tut...</a>\",\n        \"num_comments\": null,\n        \"story_title\": \"GTA VI Leak [video]\",\n        \"story_url\": \"https://www.youtube.com/watch?v=az2wt7sRuHM\",\n        \"parent_id\": 32886276,\n        \"serverCreatedAt\": \"2022-09-18T23:27:16.993Z\",\n        \"updatedAt\": \"2022-09-18T23:31:41.225Z\",\n        \"deletedAt\": \"2022-09-18T19:31:41.225Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "seed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/articles/seed",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"articles",
+								"seed"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "seed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local_url}}/articles/seed",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"articles",
+										"seed"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-ZI8CqL9PW5g8snvXma5xYAv79sk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Sep 2022 19:27:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"node js news uploaded\",\n    \"data\": {\n        \"saved\": 20,\n        \"omitted\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "base",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_url}}/",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "base",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13-kzMtMQeRQ0A15lidP1HYIAoaeNw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 17 Sep 2022 21:36:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "express_hacker_news"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
