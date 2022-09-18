@@ -10,13 +10,15 @@
     "format": "prettier --write .",
     "dev": "tsc-watch --onSuccess \"node ./bin/www\"",
     "build": "tsc",
+    "build:clean": "npm run clean & npm run build",
     "build:start": "npm run build & npm run start",
     "test": "mocha -r ts-node/register test/**/*.spec.ts --recursive",
     "test:coverage": "nyc npm run test",
     "test:parallel": "mocha --parallel -r ts-node/register test/**/*.spec.ts --recursive",
     "test_only_file": "mocha -r ts-node/register test/hacker_new_service.spec.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:run:arg": "typeorm migration:run -d dist/data-source.js"
+    "migration:run": "typeorm migration:run -d dist/data-source.js",
+    "migration:show": "typeorm migration:show -d dist/data-source.js"
   },
   "dependencies": {
     "axios": "^0.27.2",

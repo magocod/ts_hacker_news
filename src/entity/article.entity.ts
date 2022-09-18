@@ -3,7 +3,8 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn, DeleteDateColumn
+  UpdateDateColumn,
+  DeleteDateColumn,
 } from "typeorm";
 
 @Entity()
@@ -23,13 +24,13 @@ export class Article {
   @Column("text", { nullable: true })
   author!: string | null;
 
-  @Column('text', {
+  @Column("text", {
     array: true,
-    default: []
+    default: [],
   })
   tags!: string[];
 
-  @Column("timestamp with time zone", { nullable: true })
+  @Column("timestamp without time zone", { nullable: true })
   created_at!: Date | null;
 
   @Column("text", { nullable: true })
@@ -63,7 +64,7 @@ export class Article {
   updatedAt!: Date;
 
   @DeleteDateColumn()
-  deletedAt?: Date
+  deletedAt?: Date;
 }
 
 export default Article;

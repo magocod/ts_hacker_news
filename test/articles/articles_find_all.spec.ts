@@ -21,6 +21,7 @@ describe("articles_find_all", function () {
   });
 
   it("unfiltered", async function () {
+    await generateArticle(articleRep);
     const response = await httpClient.get(baseRoute);
 
     assert.equal(response.status, 200);
@@ -79,7 +80,7 @@ describe("articles_find_all", function () {
     const qs = basicPagination();
     qs.tags = testTags.tags;
     const response = await httpClient.get(addQueryString(baseRoute, qs));
-
+    console.log(response.body);
     assert.equal(response.status, 200);
     assert.hasAllKeys(response.body, PaginationResponseKeys);
     assert.equal(response.body.data.length, 2);

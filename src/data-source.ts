@@ -18,7 +18,7 @@ export function createDataSource(): DataSource {
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    synchronize: true,
+    synchronize: false, // only for quick tests
     logging: false,
     // entities: [entitiesPath],
     entities: [Article],

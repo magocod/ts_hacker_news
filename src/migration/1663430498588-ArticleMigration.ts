@@ -4,7 +4,7 @@ export class ArticleMigration1663430498588 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "Article",
+        name: "article",
         columns: [
           {
             name: "id",
@@ -14,44 +14,95 @@ export class ArticleMigration1663430498588 implements MigrationInterface {
             generationStrategy: "increment",
           },
           {
-            name: "username",
-            type: "varchar",
-            isUnique: true,
+            name: "objectID",
+            type: "text",
+            isUnique: false, // FIXME db - unique restriction?
             isNullable: false,
           },
           {
-            name: "email",
-            type: "varchar",
-            isUnique: true,
-            isNullable: false,
-          },
-          {
-            name: "password",
-            type: "varchar",
-            isNullable: false,
-          },
-          {
-            name: "ip",
-            type: "varchar",
+            name: "title",
+            type: "text",
             isNullable: true,
           },
           {
-            name: "last_login",
+            name: "story_id",
+            type: "int",
             isNullable: true,
-            // type: "timestamp",
-            type: "timestamp with time zone", // pg only
+          },
+          {
+            name: "author",
+            type: "text",
+            isNullable: true,
+          },
+          {
+            name: "tags",
+            type: "text",
+            isNullable: true,
+            isArray: true
           },
           {
             name: "created_at",
             // type: "timestamp",
-            type: "timestamp with time zone", // pg only
+            type: "timestamp without time zone", // pg only
+            isNullable: true,
+          },
+          {
+            name: "url",
+            type: "text",
+            isNullable: true,
+          },
+          {
+            name: "points",
+            type: "int",
+            isNullable: true,
+          },
+          {
+            name: "story_text",
+            type: "text",
+            isNullable: true,
+          },
+          {
+            name: "comment_text",
+            type: "text",
+            isNullable: true,
+          },
+          {
+            name: "num_comments",
+            type: "int",
+            isNullable: true,
+          },
+          {
+            name: "story_title",
+            type: "text",
+            isNullable: true,
+          },
+          {
+            name: "story_url",
+            type: "text",
+            isNullable: true,
+          },
+          {
+            name: "parent_id",
+            type: "int",
+            isNullable: true,
+          },
+          {
+            name: "serverCreatedAt",
+            // type: "timestamp",
+            type: "timestamp without time zone", // pg only
             default: "now()",
           },
           {
-            name: "updated_at",
+            name: "updatedAt",
+            // type: "timestamp",
+            type: "timestamp without time zone", // pg only
+            default: "now()",
+          },
+          {
+            name: "deletedAt",
             // type: "timestamp",
             type: "timestamp with time zone", // pg only
-            default: "now()",
+            isNullable: true,
           },
         ],
       }),
@@ -60,6 +111,6 @@ export class ArticleMigration1663430498588 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("Article");
+    await queryRunner.dropTable("article");
   }
 }
