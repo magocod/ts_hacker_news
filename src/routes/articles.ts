@@ -14,25 +14,29 @@ const articleController = new ArticleController();
  * calling an instance property will return undefined
  */
 
+articleRouter.get("/seed", (req: Request, res: Response, next: NextFunction) => {
+  return articleController.seed(req, res).catch(next)
+});
+
 articleRouter.get("/", (req: Request, res: Response, next: NextFunction) => {
-  return articleController.findAll(req, res, next);
+  return articleController.findAll(req, res).catch(next)
 });
 
 articleRouter.post("/", (req: Request, res: Response, next: NextFunction) => {
-  return articleController.create(req, res, next);
+  return articleController.create(req, res, next).catch(next)
 });
 
 articleRouter.get("/:id", (req: Request, res: Response, next: NextFunction) => {
-  return articleController.find(req, res, next);
+  return articleController.find(req, res, next).catch(next)
 });
 
 articleRouter.put("/:id", (req: Request, res: Response, next: NextFunction) => {
-  return articleController.update(req, res, next);
+  return articleController.update(req, res, next).catch(next)
 });
 
 articleRouter.delete(
   "/:id",
   (req: Request, res: Response, next: NextFunction) => {
-    return articleController.delete(req, res, next);
+    return articleController.delete(req, res).catch(next)
   }
 );

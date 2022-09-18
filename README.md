@@ -8,6 +8,10 @@
 npm install
 ```
 
+```bash
+docker-compose up -d
+```
+
 ### Translate code to javascript (dist)
 
 ```bash

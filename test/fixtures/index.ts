@@ -1,1 +1,1 @@
-// pass
+export * from "./article";

@@ -1,4 +1,4 @@
-import "reflect-metadata"
+import "reflect-metadata";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -16,8 +16,18 @@ import path from "path";
 import helmet from "helmet";
 import cors from "cors";
 
-import { articleRouter } from "./routes/articles";
+import { AppDataSource, createDataSource } from "./data-source";
 
+import { articleRouter } from "./routes/articles";
+import { DataSource } from "typeorm";
+
+/**
+ * if error does not contain msg, it may be an unknown exception
+ * @param err
+ * @param req
+ * @param res
+ * @param next
+ */
 /* eslint-disable no-alert,  @typescript-eslint/no-unused-vars */
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   // set locals, only providing error in development
@@ -25,14 +35,14 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
+  console.log(req.app.get("env"));
+  console.log(err);
   res.status(err.status || 500);
-  // res.render("error");
   res.setHeader("Content-Type", "application/json");
 
   res.json({
-    message: err.message,
-    msg: err.msg,
-    // error: err.message,
+    message: req.app.get("env") === "development" ? err.message : undefined,
+    msg: err.msg ? err.msg : "general exception message",
   });
 };
 
@@ -74,25 +84,26 @@ export function createApp(): Express {
 /**
  * call asynchronous process and do not wait for its result
  */
-export function syncCreateApp(): Express.Application {
-  // new Promise((resolve) => {
-  //   resolve("");
-  // })
-  //   .then(() => {
-  //     console.log("example connect db");
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+export function syncCreateApp(): Express {
+  AppDataSource.initialize()
+    .then(() => {
+      console.log("db connected");
+    })
+    .catch((e) => {
+      console.log("db connected failed");
+      console.log(e);
+    });
   return createApp();
 }
 
 /**
  * call asynchronous processes and wait for results
  */
-export async function asyncCreateApp(): Promise<Express.Application> {
-  // await new Promise((resolve) => {
-  //   resolve("example connect db");
-  // });
-  return createApp();
+export async function asyncCreateApp(): Promise<{
+  app: Express;
+  ds: DataSource;
+}> {
+  await AppDataSource.initialize();
+  const app = createApp();
+  return { app, ds: AppDataSource };
 }

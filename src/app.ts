@@ -2,9 +2,9 @@
  * app with export default syntax
  */
 
-import { createApp } from "./app.factory";
+import { syncCreateApp } from "./app.factory";
 
-const app = createApp();
+const app = syncCreateApp();
 
 export default app;
 

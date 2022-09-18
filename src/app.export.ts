@@ -3,9 +3,11 @@
  * current solution, use another file with export syntax (export = a)
  */
 
-import app from "./app";
+import { syncCreateApp } from "./app.factory";
 
 // boot services
 // ...
+
+const app = syncCreateApp();
 
 export = app;

@@ -1,6 +1,6 @@
 export type ObjectKey = string | number | symbol;
 
-export type TestQueryString = "page" | "limit" | string;
+export type TestQueryString = "page" | string;
 
 export type QueryString<T extends ObjectKey = TestQueryString> = {
   [key in T]?: unknown;
@@ -9,7 +9,6 @@ export type QueryString<T extends ObjectKey = TestQueryString> = {
 export function basicPagination(): QueryString {
   return {
     page: 0,
-    limit: 3,
   };
 }
 

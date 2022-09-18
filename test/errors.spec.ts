@@ -1,11 +1,11 @@
 import { assert } from "chai";
 
 import { ExampleError, BaseError } from "../src/error";
-import { createApp } from "../src/app.factory";
-import supertest from "supertest";
+// import { createApp } from "../src/app.factory";
+// import supertest from "supertest";
 
 function callBaseError() {
-  throw new BaseError("from func", "overwrite message");
+  throw new BaseError("from func", 400, "overwrite message");
 }
 
 function callExampleError() {
@@ -13,26 +13,27 @@ function callExampleError() {
 }
 
 describe("errors", function () {
-  let httpClient: supertest.SuperTest<supertest.Test>;
-
-  before(function () {
-    const app = createApp();
-    // app.get("/sync", (_req: Request, res: Response) => {
-    //   callExampleError();
-    //   res.json({});
-    // });
-    httpClient = supertest(app);
-  });
+  // let httpClient: supertest.SuperTest<supertest.Test>;
+  //
+  // before(function () {
+  //   const app = createApp();
+  //   // app.get("/sync", (_req: Request, res: Response) => {
+  //   //   callExampleError();
+  //   //   res.json({});
+  //   // });
+  //   httpClient = supertest(app);
+  // });
 
   describe("base_error", function () {
     it("throw", function () {
       try {
-        throw new BaseError("baz", "bazMessage");
+        throw new BaseError("baz", 400, "bazMessage");
       } catch (e) {
         if (e instanceof BaseError) {
           assert.equal(e.message, "bazMessage");
           assert.equal(e.name, "BaseError");
           assert.equal(e.msg, "baz");
+          assert.equal(e.status, 400);
         }
       }
     });
@@ -45,6 +46,7 @@ describe("errors", function () {
           assert.equal(e.message, "overwrite message");
           assert.equal(e.name, "BaseError");
           assert.equal(e.msg, "from func");
+          assert.equal(e.status, 400);
         }
       }
     });
@@ -59,6 +61,7 @@ describe("errors", function () {
           assert.equal(e.message, "example code error message");
           assert.equal(e.name, "ExampleError");
           assert.equal(e.msg, "example message");
+          assert.equal(e.status, 500);
         }
       }
     });
@@ -71,6 +74,7 @@ describe("errors", function () {
           assert.equal(e.message, "example code error message");
           assert.equal(e.name, "ExampleError");
           assert.equal(e.msg, "example message");
+          assert.equal(e.status, 500);
         }
       }
     });
@@ -83,20 +87,23 @@ describe("errors", function () {
           assert.equal(e.message, "example code error message");
           assert.equal(e.name, "ExampleError");
           assert.equal(e.msg, "example message");
+          assert.equal(e.status, 500);
         }
       }
     });
-
-    // it("with express, sync code", async function () {
-    //   const response = await httpClient.get("/sync_error");
-    //   // console.log(response.body);
-    //   assert.equal(response.status, 500);
-    // });
-    //
-    // it("with express, async code", async function () {
-    //   const response = await httpClient.get("/async_error");
-    //   // console.log(response.body);
-    //   assert.equal(response.status, 500);
-    // });
   });
+
+  // describe("express", function () {
+  //   it("with express, sync code", async function () {
+  //     const response = await httpClient.get("/sync_handler");
+  //     // console.log(response.body);
+  //     assert.equal(response.status, 500);
+  //   });
+  //
+  //   it("with express, async code", async function () {
+  //     const response = await httpClient.get("/async_handler");
+  //     // console.log(response.body);
+  //     assert.equal(response.status, 500);
+  //   });
+  // });
 });
