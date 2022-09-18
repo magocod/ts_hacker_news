@@ -14,7 +14,7 @@
     "test": "mocha -r ts-node/register test/**/*.spec.ts --recursive",
     "test:coverage": "nyc npm run test",
     "test:parallel": "mocha --parallel -r ts-node/register test/**/*.spec.ts --recursive",
-    "test_only_file": "mocha -r ts-node/register test/example_integration.spec.ts",
+    "test_only_file": "mocha -r ts-node/register test/hacker_new_service.spec.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:run:arg": "typeorm migration:run -d dist/data-source.js"
   },

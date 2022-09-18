@@ -3,12 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import cookieParser from "cookie-parser";
-import express, {
-  ErrorRequestHandler,
-  Express,
-  Request,
-  Response,
-} from "express";
+import express, { Express, Request, Response } from "express";
 import createError from "http-errors";
 import logger from "morgan";
 import path from "path";
@@ -16,35 +11,11 @@ import path from "path";
 import helmet from "helmet";
 import cors from "cors";
 
-import { AppDataSource, createDataSource } from "./data-source";
+import { AppDataSource } from "./data-source";
 
 import { articleRouter } from "./routes/articles";
 import { DataSource } from "typeorm";
-
-/**
- * if error does not contain msg, it may be an unknown exception
- * @param err
- * @param req
- * @param res
- * @param next
- */
-/* eslint-disable no-alert,  @typescript-eslint/no-unused-vars */
-const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
-  console.log(req.app.get("env"));
-  console.log(err);
-  res.status(err.status || 500);
-  res.setHeader("Content-Type", "application/json");
-
-  res.json({
-    message: req.app.get("env") === "development" ? err.message : undefined,
-    msg: err.msg ? err.msg : "general exception message",
-  });
-};
+import { errorHandler } from "./utils";
 
 /**
  * do not call synchronous processes in this function, or with side effects (ej: connection to db)
@@ -93,6 +64,7 @@ export function syncCreateApp(): Express {
       console.log("db connected failed");
       console.log(e);
     });
+
   return createApp();
 }
 
@@ -103,7 +75,9 @@ export async function asyncCreateApp(): Promise<{
   app: Express;
   ds: DataSource;
 }> {
-  await AppDataSource.initialize();
+  if (!AppDataSource.isInitialized) {
+    await AppDataSource.initialize();
+  }
   const app = createApp();
   return { app, ds: AppDataSource };
 }

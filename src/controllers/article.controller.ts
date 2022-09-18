@@ -6,6 +6,7 @@ import { generatePagination } from "../utils";
 import { Article } from "../entity";
 import { FindOptionsWhere, ILike, ArrayContains } from "typeorm";
 import { AppDataSource } from "../data-source";
+import { NotFoundError } from "../error"
 
 export class ArticleController implements HttpController {
   private readonly articleRepository = AppDataSource.getRepository(Article);
@@ -62,8 +63,11 @@ export class ArticleController implements HttpController {
       where: { id: parseInt(req.params.id) },
     });
     if (article === null) {
-      // pass
+      throw new NotFoundError()
     }
+    // const article = await this.articleRepository.findOneOrFail({
+    //   where: { id: parseInt(req.params.id) },
+    // });
 
     const results = await this.articleRepository.softDelete(article.id);
     return res.status(200).json({ message: "removed", data: results });
