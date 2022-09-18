@@ -1,1 +1,1 @@
-export * from "./hackernew.service"
+export * from "./hackernew.service";

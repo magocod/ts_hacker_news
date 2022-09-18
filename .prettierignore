@@ -10,3 +10,5 @@ package-lock.json
 .mocharc.yml
 tsconfig.json
 tsconfig.build.json
+docker-compose.yaml
+.nycrc

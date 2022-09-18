@@ -52,7 +52,7 @@ export class HackerNewService {
             num_comments: hit.num_comments,
             story_title: hit.story_title,
             story_url: hit.story_url,
-            parent_id: hit.parent_id
+            parent_id: hit.parent_id,
           })
         );
       }

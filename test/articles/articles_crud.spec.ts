@@ -8,7 +8,7 @@ describe("articles_crud", function () {
   let httpClient: supertest.SuperTest<supertest.Test>;
 
   before(async function () {
-    const { app, ds } = await asyncCreateApp();
+    const { app } = await asyncCreateApp();
     httpClient = supertest(app);
   });
 

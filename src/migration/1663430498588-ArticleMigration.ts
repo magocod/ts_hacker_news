@@ -38,7 +38,7 @@ export class ArticleMigration1663430498588 implements MigrationInterface {
             name: "tags",
             type: "text",
             isNullable: true,
-            isArray: true
+            isArray: true,
           },
           {
             name: "created_at",

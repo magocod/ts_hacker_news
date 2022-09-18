@@ -18,6 +18,6 @@ export class BaseError extends Error {
     this.name = "BaseError";
     // Custom debugging information
     this.msg = msg;
-    this.status = status
+    this.status = status;
   }
 }

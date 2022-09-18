@@ -45,14 +45,17 @@ export class ArticleController implements HttpController {
     return res.status(200).json({ message: "Node.js news", ...pagination });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async create(_req: Request, _res: Response, _next: NextFunction) {
     throw new UnImplementedError();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async find(_req: Request, _res: Response, _next: NextFunction) {
     throw new UnImplementedError();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async update(_req: Request, _res: Response, _next: NextFunction) {
     throw new UnImplementedError();
   }

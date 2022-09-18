@@ -18,7 +18,7 @@ export interface HackerNewsResponse {
   exhaustiveNbHits: boolean;
   exhaustiveTypo: boolean;
   exhaustive: Exhaustive;
-  query: Query | string;  // FIXME enum
+  query: Query | string; // FIXME enum
   params: string;
   processingTimeMS: number;
   processingTimingsMS: ProcessingTimingsMS;

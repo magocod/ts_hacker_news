@@ -3,14 +3,14 @@
  * by changing this aspect it will no longer be required
  */
 
-import { AppDataSource } from "../src/data-source"
+import { AppDataSource } from "../src/data-source";
 
 export async function mochaGlobalSetup() {
   // console.log("GlobalSetup from ts");
-  await AppDataSource.initialize()
+  await AppDataSource.initialize();
 }
 
 export async function mochaGlobalTeardown() {
   // console.log("GlobalTeardown from ts");
-  await AppDataSource.destroy()
+  await AppDataSource.destroy();
 }
