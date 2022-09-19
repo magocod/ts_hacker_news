@@ -1,3 +1,5 @@
+# moved repository to https://gitlab.com/YsonM/ts_hacker_news 
+
 # Express Hacker News.
 
 ## Considerations
