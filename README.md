@@ -1,4 +1,4 @@
-# moved repository to https://gitlab.com/YsonM/ts_hacker_news 
+# Moved repository to https://gitlab.com/YsonM/ts_hacker_news 
 
 # Express Hacker News.
 
